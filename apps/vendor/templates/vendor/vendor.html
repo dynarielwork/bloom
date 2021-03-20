@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ vendor.name }} | {% endblock %}
+
+{% block content %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<style>
+ body {
+        font-family: Helvetica Neue,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,sans-serif;
+        font-size: 12px;
+        font-style:  normal;
+        font-color: dark;
+        background-color: #f7f7f7;
+    }
+
+    .head_text {
+        color: white;
+
+    }
+
+    .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+    .card {
+        box-shadow: 0 16px 30px #77773c;
+        background-color: #fdfdfd;
+        width: 3000;
+        margin: 1.6px;
+        height: auto
+        border-radius: 10px;
+    }
+
+    form ul:not(.errorlist) {
+    display: none;
+}
+
+.newsletter-wrapper {
+    padding: 50px 20px;
+    text-align: center;
+    background: #0E3E2E;
+}
+ .newsletter-wrapper .field.has-addons {
+        justify-content: center;
+    }
+
+   .newsletter-wrapper .notification {
+        margin-top: 20px;
+    }
+
+  .notification.space-below {
+   text-color: #0E3E2E;
+   margin-bottom: 20px;
+}
+
+.reviews-wrapper{
+    justify-content: center;
+}
+
+.reviews-wrapper{
+    width: 100vw;
+    display: block;
+    overflow: hidden;
+    text-color: #0c0d0c;
+    padding: 70px 5;
+    box-sizing: border-box;
+
+
+}
+
+
+.card-text{
+    width: 50vw;
+    display: block;
+    overflow: hidden;
+    text-color: #0c0d0c;
+    padding: 20px 5;
+    box-sizing: border-box;
+    box-shadow: 0 16px 48px #85adad;
+    text-align: justify;
+}
+
+.control {
+margin: -10px;
+
+}
+
+.title{
+    width: 100vw;
+    display: block;
+    overflow: hidden;
+    text-color: #0c0d0c;
+    padding: 70px 5;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-style:  normal;
+}
+
+
+
+.container {
+  padding: 2px 16px;
+}
+
+.card-contents {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 80%;
+  height: 50%;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  margin: 10px;
+}
+
+.reviews-wrapper {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 80%;
+  height: 50%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  margin: 10px;
+}
+
+/* If screen size is more than 600px wide, set the font-size of <div> to 80px */
+@media screen and (min-width: 600px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div.example {
+    font-size: 15px;
+  }
+}
+
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 50%;
+  }
+.reviews-wrapper{
+    justify-content: center;
+}
+
+.reviews-wrapper{
+    width: 100vw;
+    display: block;
+    overflow: hidden;
+    text-color: #0c0d0c;
+    padding: 70px 5;
+    box-sizing: border-box;
+
+
+}
+
+}
+
+.reviews-wrapper {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  margin: 10px;
+}
+
+
+</style>
+
+
+    <div class="columns is-multiline mb-6">
+        <div class="column is-12 has-text-centered mt-6 mb-6">
+            <h2 class="is-size-3">{{ vendor.name }}</h2>
+        </div>
+
+        {% for product in vendor.products.all %}
+            {% include 'parts/product_list.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

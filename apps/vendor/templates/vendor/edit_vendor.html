@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit vendor | {% endblock %}
+
+{% block content %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<style>
+
+
+
+</style>
+
+    <h1 class="title">Edit vendor</h1>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        <div class="field">
+            <label>Vendor name</label>
+
+            <div class="control">
+                <input type="text" name="name" id="id_name" value="{{ vendor.name }}" class="input">
+            </div>
+
+            <p class="help">This is not the same as the username!</p>
+        </div>
+
+        <div class="field">
+            <label>E-mail</label>
+
+            <div class="control">
+                <input type="email" name="email" id="id_email" value="{{ vendor.created_by.email }}" class="input">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-dark is-uppercase">Save changes</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
